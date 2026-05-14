@@ -1,0 +1,13 @@
+com\smartwallet\repository\TransactionRepository.class
+com\smartwallet\controller\TransactionController.class
+com\smartwallet\model\Transaction.class
+com\smartwallet\SmartwalletRestApiApplication.class
+com\smartwallet\dto\RegisterRequest.class
+com\smartwallet\service\UserService.class
+com\smartwallet\dto\TransactionRequest.class
+com\smartwallet\repository\WalletRepository.class
+com\smartwallet\repository\UserRepository.class
+com\smartwallet\service\TransactionService.class
+com\smartwallet\model\User.class
+com\smartwallet\controller\UserController.class
+com\smartwallet\model\Wallet.class
