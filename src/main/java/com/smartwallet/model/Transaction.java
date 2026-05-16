@@ -1,31 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.smartwallet.model;
+
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-/**
- *
- * @author ABC
- */
-@Entity//this class hold the database table
-@Table(name="transactions")
+
+@Entity
+@Table(name = "transactions")
 public class Transaction {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    
-    private int tranactionId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int transactionId;
+
     private String senderEmail;
     private String receiverEmail;
     private double amount;
     private String status;
     private LocalDateTime createdAt;
-    
-    public Transaction(String email, String email1, double amount1, String success, LocalDateTime now){}
 
-    public Transaction(int tranactionId, String senderEmail, String receiverEmail, double amount, String status, LocalDateTime createdAt) {
-        this.tranactionId = tranactionId;
+    public Transaction() {
+    }
+
+    public Transaction(String senderEmail,
+                       String receiverEmail,
+                       double amount,
+                       String status,
+                       LocalDateTime createdAt) {
+
         this.senderEmail = senderEmail;
         this.receiverEmail = receiverEmail;
         this.amount = amount;
@@ -33,12 +33,12 @@ public class Transaction {
         this.createdAt = createdAt;
     }
 
-    public int getTranactionId() {
-        return tranactionId;
+    public int getTransactionId() {
+        return transactionId;
     }
 
-    public void setTranactionId(int tranactionId) {
-        this.tranactionId = tranactionId;
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
 
     public String getSenderEmail() {
@@ -80,5 +80,4 @@ public class Transaction {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-    
 }

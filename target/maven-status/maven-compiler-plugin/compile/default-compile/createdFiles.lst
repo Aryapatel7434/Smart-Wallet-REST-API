@@ -1,12 +1,13 @@
 com\smartwallet\repository\TransactionRepository.class
 com\smartwallet\controller\TransactionController.class
 com\smartwallet\model\Transaction.class
+com\smartwallet\security\JwtFilter.class
 com\smartwallet\controller\AuthController.class
 com\smartwallet\SmartwalletRestApiApplication.class
 com\smartwallet\dto\RegisterRequest.class
 com\smartwallet\service\UserService.class
 com\smartwallet\security\JwtUtil.class
-samartwalletApi\demo\DemoApplication.class
+com\smartwallet\security\SecurityConfig.class
 com\smartwallet\dto\TransactionRequest.class
 com\smartwallet\repository\WalletRepository.class
 com\smartwallet\repository\UserRepository.class

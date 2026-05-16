@@ -58,17 +58,15 @@ public class TransactionService {
         walletRepository.save(senderWallet);
         walletRepository.save(receiverWallet);
 
-        Transaction transaction =
-                new Transaction(
-                        sender.getEmail(),
-                        receiver.getEmail(),
-                        request.getAmount(),
-                        "SUCCESS",
-                        LocalDateTime.now()
-                );
+       Transaction transaction = new Transaction(
+        request.getSenderEmail(),
+        request.getReceiverEmail(),
+        request.getAmount(),
+        "SUCCESS",
+        LocalDateTime.now()
+);
 
-        transactionRepository.save(transaction);
-
+transactionRepository.save(transaction);
         return "Transaction Successful";
     }
        public List<Transaction> getTransactionHistory(String email) {
