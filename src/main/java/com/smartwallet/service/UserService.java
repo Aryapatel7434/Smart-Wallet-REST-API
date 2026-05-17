@@ -1,5 +1,6 @@
 package com.smartwallet.service;
 
+import java.util.List;
 import com.smartwallet.dto.RegisterRequest;
 import com.smartwallet.model.User;
 import com.smartwallet.model.Wallet;
@@ -37,7 +38,8 @@ public class UserService {
         User user = new User(
                 request.getName(),
                 request.getEmail(),
-                encodedPassword
+                encodedPassword,
+                "USER"//Every new user become Normal user by default
         );
 
         User savedUser = userRepository.save(user);
@@ -65,5 +67,8 @@ public class UserService {
         }
 
         return walletRepository.findByUserId(user.getUserId());
+    }
+    public List<User>getAllUsers(){
+        return userRepository.findAll();
     }
 }

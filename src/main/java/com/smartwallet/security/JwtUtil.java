@@ -18,15 +18,15 @@ public class JwtUtil {
     }
     //Extract email with Token
 
-    public String generateToken(String email) {
-
-        return Jwts.builder()
-                .subject(email)//add user identity
-                .issuedAt(new Date())//store token creation time
-                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))//Token expire Time
-                .signWith(getSigningKey())//Signs Token using secret key
-                .compact();//convert jwt object into String token
-    }
+    public String generateToken(String email, String role) {
+    return Jwts.builder()
+            .subject(email)
+            .claim("role", role)
+            .issuedAt(new Date())
+            .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
+            .signWith(getSigningKey())
+            .compact();
+}
     public String extractEmail(String token){
         Claims claims=Jwts.parser().verifyWith((javax.crypto.SecretKey)getSigningKey()).build().parseSignedClaims(token).getPayload();
         
@@ -42,4 +42,13 @@ public class JwtUtil {
             return false;
         }
     }
+   public String extractRole(String token) {
+    Claims claims = Jwts.parser()
+            .verifyWith((javax.crypto.SecretKey) getSigningKey())
+            .build()
+            .parseSignedClaims(token)
+            .getPayload();
+
+    return claims.get("role", String.class);
+}
 }
