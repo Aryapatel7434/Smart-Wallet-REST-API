@@ -30,7 +30,54 @@ This project is part of my journey to build an **AI-powered Smart Wallet and fut
 - Integrated JWT dependency using Maven
 
 ---
+# 🔐 Day 5 — JWT Authentication & Protected APIs
 
+## 🚀 Smart Wallet REST API
+
+Day 5 focused on implementing **JWT Authentication** and securing transaction APIs using **Spring Security**.
+
+This transformed the project from a basic REST backend into a **secure FinTech backend system**.
+
+---
+
+# ✅ Features Implemented
+
+## 🔑 JWT Authentication
+- User login API
+- JWT token generation
+- Token validation
+- Secure authentication flow
+
+---
+
+## 🛡️ Spring Security Integration
+- Added Spring Security dependency
+- Configured security filter chain
+- Added JWT filter
+- Protected transaction APIs
+
+---
+
+## 💸 Protected Transaction APIs
+Only authenticated users with valid JWT tokens can:
+
+- Send money
+- Access transaction history
+
+---
+
+# 🧠 Authentication Flow
+
+```text
+User Login
+↓
+JWT Token Generated
+↓
+Token Sent in Authorization Header
+↓
+JWT Filter Validates Token
+↓
+Protected API Access Granted
 ## 🧠 Backend Architecture
 
 ```text
