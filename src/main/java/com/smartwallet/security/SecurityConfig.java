@@ -23,11 +23,16 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http)
 
     http
         .csrf(csrf -> csrf.disable())
-        .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/api/auth/**").permitAll()
-            .requestMatchers("/api/users/register").permitAll()
-            .anyRequest().permitAll()
-        )
+         .authorizeHttpRequests(auth -> auth
+
+    .requestMatchers("/api/auth/login").permitAll()
+
+    .requestMatchers("/api/users/register").permitAll()
+
+    .requestMatchers("/api/transactions/**").authenticated()
+
+    .anyRequest().permitAll()
+)
         .addFilterBefore(jwtFilter,
             UsernamePasswordAuthenticationFilter.class);
 

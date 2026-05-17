@@ -5,6 +5,7 @@ import com.smartwallet.model.User;
 import com.smartwallet.model.Wallet;
 import com.smartwallet.repository.UserRepository;
 import com.smartwallet.repository.WalletRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,12 +13,17 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final WalletRepository walletRepository;
-    //constructor injection
-    public UserService(UserRepository userRepository, WalletRepository walletRepository) {
+    private final BCryptPasswordEncoder passwordEncoder;
+
+    public UserService(UserRepository userRepository,
+                       WalletRepository walletRepository,
+                       BCryptPasswordEncoder passwordEncoder) {
+
         this.userRepository = userRepository;
         this.walletRepository = walletRepository;
+        this.passwordEncoder = passwordEncoder;
     }
-//this method receives user data from controller.
+
     public String registerUser(RegisterRequest request) {
 
         User existingUser = userRepository.findByEmail(request.getEmail());
@@ -26,10 +32,12 @@ public class UserService {
             return "User already exists";
         }
 
+        String encodedPassword = passwordEncoder.encode(request.getPassword());
+
         User user = new User(
                 request.getName(),
                 request.getEmail(),
-                request.getPassword()
+                encodedPassword
         );
 
         User savedUser = userRepository.save(user);
