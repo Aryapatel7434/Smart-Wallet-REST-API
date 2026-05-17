@@ -90,3 +90,30 @@ Service
 Repository
 ↓
 MySQL Database
+
+
+# Day 6 — BCrypt Password Encryption
+
+## Features Implemented
+- Added BCrypt password hashing
+- Secure password storage
+- Password verification using BCrypt
+- JWT authentication integration
+- Protected APIs with token validation
+
+## Security Improvements
+- Plain-text passwords removed
+- Encrypted password storage
+- Industry-level authentication flow
+
+## APIs Tested
+- User Registration
+- User Login
+- Protected Transaction APIs
+
+## Tech Used
+- Spring Boot
+- Spring Security BCrypt
+- JWT
+- MySQL
+- JPA/Hibernate
